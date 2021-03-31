@@ -13,6 +13,8 @@ namespace Banking
         private string name;
         private string address;
         private List<Account> accounts = new List<Account>();
+        private List<Customer> customers = new List<Customer>();
+        private List<Employee> employees = new List<Employee>();
 
         public Bank(string name, string address)
         {
@@ -23,8 +25,9 @@ namespace Banking
         }
 
 
-        public void addAccount(string owner)
+        private void addAccount(string owner)
         {
+
             Account a = new Account(owner);
             accounts.Add(a);
 
@@ -38,6 +41,19 @@ namespace Banking
             }
         }
 
+
+        public void addCustomer(string name, int age)
+        {
+
+            Console.WriteLine("Enter your password: ");
+            string password = Console.ReadLine();
+
+            Account a = new Account(name);
+            accounts.Add(a);
+
+           // customers.Add(new Customer(name, age, password, a.get));
+
+        }
 
     }
 }

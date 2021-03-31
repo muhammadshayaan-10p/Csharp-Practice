@@ -9,7 +9,18 @@ namespace Banking
     class Account
     {
 
-        private string owner { get; set; }
+        private string owner { 
+            
+            get {
+
+                return this.owner;
+            }
+
+            set { 
+            
+            
+            } }
+
         private int number { get; }
 
         private int balance { get; set; }
@@ -18,12 +29,17 @@ namespace Banking
 
         private List<Transaction> transactions = new List<Transaction>();
 
+        private DateTime openingDate;
+
+        private string description;
+
         public Account(string owner)
         {
 
             this.owner = owner;
             this.number = accountSeed + 1;
             balance = 0;
+            openingDate = DateTime.Now;
 
         }
 
@@ -51,12 +67,21 @@ namespace Banking
 
         }
 
+        public void editAccount(string owner, string description) {
+
+            this.owner = owner;
+            this.description = description;
+        }
+
         public void print()
         {
 
             Console.WriteLine($"Account {number} owned by {owner} has the balance {balance}");
-
+            Console.Write($" opening date for the account was {openingDate.ToString("yyyy-MM-dd HH-MM")}");
+            Console.WriteLine();
         }
+
+
 
 
     }
